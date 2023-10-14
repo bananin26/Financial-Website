@@ -4,4 +4,4 @@ Web Financiera de MiVivienda: Elige entre 18 viviendas, genera un cronograma de 
 # Instalation
 npm install
 
-luego descargar archivo - Manual-de-Usuario
+Luego Descarga el manual, el cual esta dentro del repositorio principal
