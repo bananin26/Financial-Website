@@ -228,23 +228,17 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><label for="financing-amount">Monto a financiar</label></td>
-                  <td><input type="number" id="financing-amount" name="financing-amount"></td>
+                    <td><label for="financing-amount">Monto a financiar</label></td>
+                    <td><input type="number" id="financing-amount" name="financing-amount" oninput="selectTasa()"></td>
                 </tr>
                 <tr>
                     <td><label for="type-tasa">Tipo de Tasa</label></td>
-                    <td>
-                      <select id="type-tasa" name="type-tasa">
-                        <option value="" selected disabled>Seleccione</option>
-                        <option value="tna">Tasa Nominal Anual</option>
-                        <option value="tea">Tasa Efectiva Anual</option>
-                      </select>
-                    </td>
-                </tr>
+                        <td><label for="input-tea">Tasa Efectiva Anual</label></td>
+                </tr>                
                 <tr>
                     <td><label for="value-tasa">Valor de la Tasa(%)</label></td>
-                    <td><input type="value-tasa" id="value-tasa" name="value-tasa"></td>
-                  </tr>
+                    <td><input type="number" id="selected-tasa" name="selected-tasa" readonly></td>
+                </tr>
                 <tr>
                   <td><label for="monthly-debt-insurance">Seguro de desgravamen mensual(%)</label></td>
                   <td><input type="number" id="monthly-debt-insurance" name="monthly-debt-insurance"></td>

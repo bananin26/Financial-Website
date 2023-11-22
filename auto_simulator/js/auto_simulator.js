@@ -671,12 +671,44 @@ function generarSugerencias() {
   }
 }
  
- const buttonCotizar = document.querySelector('#cotizar_top');
+function showTasaInput() {
+  var typeTasa = document.getElementById('type-tasa').value;
+  var teaRow = document.getElementById('tea-row');
+  var inputTea = document.getElementById('input-tea');
 
- buttonCotizar.addEventListener('click', () => {
+  if (typeTasa === 'tea') {
+      // Mostrar el campo de entrada para Tasa Efectiva Anual
+      teaRow.classList.remove('hidden');
+  } else {
+      // Ocultar el campo de entrada para Tasa Efectiva Anual
+      teaRow.classList.add('hidden');
+      // También puedes reiniciar el valor del campo si lo deseas
+      inputTea.value = '';
+  }
+}
+
+function selectTasa() {
+  var financingAmount = parseFloat(document.getElementById('financing-amount').value);
+  var selectedTasa = document.getElementById('selected-tasa');
+
+  if (!isNaN(financingAmount)) {
+    if (financingAmount >= 15000 && financingAmount <= 33000) {
+      selectedTasa.value = 12;
+  } else {
+      selectedTasa.value = '';
+  }
+}
+}
+
+const buttonCotizar = document.querySelector('#cotizar_top');
+
+buttonCotizar.addEventListener('click', () => {
+  // Limpiar la pestaña schedule
+  const tableBody = document.querySelector('.schedule.first_operation tbody');
+  tableBody.innerHTML = '';
+
   // Obtener los parámetros de la URL
   const urlParams = new URLSearchParams(window.location.search);
-
   // Obtener el ID de la auto seleccionada a partir de los parámetros de la URL
   const autoId = urlParams.get('auto_id');
 
