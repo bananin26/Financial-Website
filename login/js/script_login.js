@@ -37,3 +37,39 @@ function moveSlider() {
 bullets.forEach((bullet) => {
   bullet.addEventListener("click", moveSlider);
 });
+
+var texts = document.querySelector('.text-group');
+var currentImageIndex = 0;
+var intervalId = null;
+
+function changeImage() {
+    images[currentImageIndex].classList.remove('show');
+    bullets[currentImageIndex].classList.remove('active');
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    images[currentImageIndex].classList.add('show');
+    bullets[currentImageIndex].classList.add('active');
+    texts.style.transform = `translateY(${-(currentImageIndex) * 2.2}rem)`;
+}
+
+function startCarousel() {
+    intervalId = setInterval(changeImage, 3000);
+}
+
+function stopCarousel() {
+    clearInterval(intervalId);
+}
+
+bullets.forEach(function(bullet, index) {
+    bullet.addEventListener('click', function() {
+        stopCarousel();
+        images[currentImageIndex].classList.remove('show');
+        bullets[currentImageIndex].classList.remove('active');
+        currentImageIndex = index;
+        images[currentImageIndex].classList.add('show');
+        bullets[currentImageIndex].classList.add('active');
+        texts.style.transform = `translateY(${-(currentImageIndex) * 2.2}rem)`;
+    });
+});
+
+startCarousel();
+

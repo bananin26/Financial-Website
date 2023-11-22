@@ -603,8 +603,3 @@ fileInput.addEventListener('change', (event) => {
 fileInput.addEventListener('change', () => {
   cambiosGuardados = false;
  });
-
-
- 
- 
- 
